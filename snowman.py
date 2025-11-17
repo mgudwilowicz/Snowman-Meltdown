@@ -2,6 +2,9 @@ from game_logic import play_game
 
 
 if __name__ == "__main__":
+    """
+    Run the Snowman Meltdown game, allowing the player to play multiple rounds.
+    """
     while True:
         play_game()
         again = input("Do you want to play again? (y/n):").lower()

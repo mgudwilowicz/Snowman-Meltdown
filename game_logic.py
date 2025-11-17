@@ -1,6 +1,7 @@
 from ascii_art import STAGES
 import random
 
+
 WORDS = ["python", "git", "github", "snowman", "meltdown"]
 
 
@@ -10,9 +11,9 @@ def get_random_word():
 
 
 def display_game_state(mistakes, secret_word, guessed_letters):
-    # Display the snowman stage for the current number of mistakes.
+    """Display the current snowman stage and the secret word with guessed letters revealed."""
     print(STAGES[mistakes])
-    # Build a display version of the secret word.
+
     display_word = ""
     for letter in secret_word:
         if letter in guessed_letters:
@@ -24,6 +25,10 @@ def display_game_state(mistakes, secret_word, guessed_letters):
 
 
 def play_game():
+    """
+    Play a single round of Snowman Meltdown, prompting the player to guess letters.
+    The game ends when the player wins or loses.
+    """
     secret_word = get_random_word()
     guessed_letters = set()
     mistakes = 0
@@ -31,14 +36,12 @@ def play_game():
     print("Welcome to Snowman Meltdown!")
 
     while True:
-        # For now, display the initial game state.
         display_game_state(mistakes, secret_word, guessed_letters)
 
         if set(secret_word) <= guessed_letters:
             print("You won!")
             return
 
-        # Prompt user for one guess (logic to be enhanced later)
         guess = input("Guess a letter: ").lower()
         if len(guess) == 1:
             print("You guessed:", guess)
