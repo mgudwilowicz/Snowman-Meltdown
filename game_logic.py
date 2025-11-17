@@ -40,7 +40,11 @@ def play_game():
 
         # Prompt user for one guess (logic to be enhanced later)
         guess = input("Guess a letter: ").lower()
-        print("You guessed:", guess)
+        if len(guess) == 1:
+            print("You guessed:", guess)
+        else:
+            print("Invalid input. Please provide only one letter.")
+            continue
 
         if guess in secret_word:
             guessed_letters.add(guess)
@@ -48,5 +52,5 @@ def play_game():
             mistakes += 1
 
         if mistakes > 3:
-            print('Game over!')
+            print("Game over!")
             return
